@@ -1,0 +1,8 @@
+services:
+  etl:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql://retail_db_bqt5_user:hCALkTwsLaQ777B8Brro9KIPuJeGfCqi@dpg-d086l2ngi27c7387glug-a.oregon-postgres.render.com/retail_db_bqt5
+    volumes:
+      - .:/app
+    command: python etl/etl_retail.py
