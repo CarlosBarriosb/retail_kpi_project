@@ -35,15 +35,15 @@ if año != "Todos":
 
 # KPIs
 col1, col2, col3 = st.columns(3)
-col1.metric("💰 Total Ventas", f"${df['ventas'].sum():,.2f}")
-col2.metric("📦 Promedio por Venta", f"${df['ventas'].mean():,.2f}")
+col1.metric("💰 Total Ventas", f"${df['total'].sum():,.2f}")
+col2.metric("📦 Promedio por Venta", f"${df['total'].mean():,.2f}")
 col3.metric("🧾 Transacciones", len(df))
 
 st.markdown("---")
 
 # Gráfico de ventas por mes
-ventas_mes = df.groupby("mes")["ventas"].sum().reset_index()
-fig = px.line(ventas_mes, x="mes", y="ventas", title="Evolución Mensual de Ventas", markers=True)
+ventas_mes = df.groupby("mes")["total"].sum().reset_index()
+fig = px.line(ventas_mes, x="mes", y="total", title="Evolución Mensual de Ventas", markers=True)
 st.plotly_chart(fig, use_container_width=True)
 
 # Tabla de datos
